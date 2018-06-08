@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.zyzs</groupId>
+	<artifactId>distributed-system</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>microservice-zyzs-eureka-ha</module>
+		<module>microservice-zyzs-provider-user</module>
+		<module>microservice-zyzs-provider-fastdfs</module>
+		<module>microservice-zyzs-consumer-movie-feign-hystrix-fallback-stream</module>
+		<module>microservice-zyzs-gateway-zuul</module>
+		<module>microservice-zyzs-discovery-eureka</module>
+		<module>microservice-zyzs-config-server-eureka</module>
+		<module>microservice-zyzs-config-client-eureka</module>
+		<module>microservice-zyzs-trace-zipkin-server-stream-elasticsearch</module>
+		<module>microservice-zyzs-provider-user-thread</module>
+		<module>microservice-zyzs-simple-provider-user-trace-zipkin-stream</module>
+		<module>microservice-zyzs-provider-user-manager</module>
+	</modules>
+</project>

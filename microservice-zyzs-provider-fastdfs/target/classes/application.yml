@@ -1,0 +1,71 @@
+server:
+  port: 5000
+spring:
+  sleuth:
+    sampler:
+      percentage: 1.0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  data:
+    mongodb:
+      password: zyzsbj
+      username: zyzsbj
+      host: 192.168.1.222
+      port: 27017
+      database: zyzsbj
+  datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/spring-cloud
+      username: root
+      password: 123456
+  jpa:
+      show-sql: true
+      hibernate:
+        ddl-auto: update
+  redis:
+    database: 5
+    host: 192.168.1.131
+    password: zyzsbj
+    port: 6379
+    timeout: 3000                       # 连接超时时间 单位 ms（毫秒）
+    pool:
+      max-active: 2000                  # 如果赋值为-1，则表示不限制；如果pool已经分配了maxActive个jedis实例，则此时pool的状态为exhausted(耗尽)
+      max-idle:    100                  # 连接池中的最大空闲连接，默认值也是8。
+      min-idle:    50                   #连接池中的最小空闲连接，默认值也是0。
+      max-wait:    1000
+  application:
+    name: microservice-zyzs-provider-fastdfs                 # 等待可用连接的最大时间，单位毫秒，默认值为-1，表示永不超时。
+logging:                                # 配置日志级别，让hibernate打印出执行的SQL
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    org.springframework.cloud.commons.util.InetUtils: TRACE   # 开启这边的日志，可以打印出Spring查找网卡的过程
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+fdfs:
+  soTimeout: 1500
+  connectTimeout: 600
+  poolConfig:
+      maxTotal: 100
+      maxIdle: 10
+  thumbImage:             #缩略图生成参数
+    width: 150
+    height: 150
+  trackerList:            #TrackerList参数,支持多个
+    - 192.168.1.131:22122
+
+#################redis哨兵设置#################
+# Redis服务器master的名字
+#spring.redis.sentinel.master=master8026
+# redis-sentinel的配置地址和端口
+#spring.redis.sentinel.nodes=10.189.80.25:26379,10.189.80.26:26379,10.189.80.27:26378

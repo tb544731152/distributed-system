@@ -1,0 +1,11 @@
+spring:
+     application:
+       name: microservice-zyzs-discovery-eureka-ha
+server:
+  port: 8761
+eureka:
+  client:
+      registerWithEureka: true
+      fetchRegistry: true
+      serviceUrl:
+        defaultZone: http://localhost:8762/eureka/      # 将自己注册到peer2这个Eureka上面去

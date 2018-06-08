@@ -1,0 +1,33 @@
+spring:
+  sleuth:
+    sampler:
+      percentage: 1.0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+  application:
+    name: microservice-zyzs-consumer-movie-feign-hystrix-fallback-stream
+server:
+  port: 8020
+logging:                                # 配置日志级别，让hibernate打印出执行的SQL
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+
+
+
+
+# 说明：请务必注意，在Spring Cloud Dalston中，Feign默认是不开启Hystrix的。
+# 因此，如使用Dalston请务必额外设置属性：feign.hystrix.enabled=true，否则断路器不会生效。
+# 而，Spring Cloud Angel/Brixton/Camden中，Feign默认都是开启Hystrix的。无需设置该属性。
